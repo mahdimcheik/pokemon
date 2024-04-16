@@ -1,0 +1,30 @@
+.grass {
+  background-color: green;
+}
+.fire {
+  background-color: rgb(193, 159, 7);
+}
+.normal,
+.default {
+  background-color: transparent;
+}
+.water {
+  background-color: aqua;
+}
+.bug {
+  background-color: rgb(132, 127, 127);
+}
+button {
+  margin: 5px;
+  border: none;
+  transition: 0.2s all ease;
+  box-shadow: 2px 2px 2px rgb(136, 135, 135);
+  filter: drop-shadow(2px 2px 2px black);
+}
+button:visited,
+button:active {
+  transform: translate(1px, 1px);
+}
+button:hover {
+  scale: 1.02;
+}
