@@ -3,3 +3,5 @@
   <app-pokemon [pokemon]="pokemon"></app-pokemon>
   }
 </ul>
+<app-child [callback]="getData.bind(this)"></app-child>
+<p>got : {{ recievedData }}</p>

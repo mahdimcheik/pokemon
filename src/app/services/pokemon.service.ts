@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, forkJoin, map, of, switchMap } from 'rxjs';
 import { PokemonSimpliste } from '../models/pokemon-simpliste';
-import { PokemonDetailed } from '../models/modelsInterfaces';
+import { PokemonDetailed, PokemonModel } from '../models/modelsInterfaces';
 import { LocalstorageService } from './localstorage.service';
 
 @Injectable({

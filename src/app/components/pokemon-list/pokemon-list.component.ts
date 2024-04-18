@@ -1,4 +1,13 @@
-import { Component, OnInit, inject } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  inject,
+  input,
+} from '@angular/core';
 import { PokemonSimpliste } from '../../models/pokemon-simpliste';
 import { PokemonService } from '../../services/pokemon.service';
 import { PokemonDetailed } from '../../models/modelsInterfaces';
@@ -9,8 +18,9 @@ import { LocalstorageService } from '../../services/localstorage.service';
   templateUrl: './pokemon-list.component.html',
   styleUrl: './pokemon-list.component.scss',
 })
-export class PokemonListComponent implements OnInit {
+export class PokemonListComponent implements OnInit, OnChanges {
   pokemonService = inject(PokemonService);
+  changeDetector = inject(ChangeDetectorRef);
   storage = inject(LocalstorageService);
   // pokemonSimplisteList: PokemonSimpliste[] = [];
   pokemonDetailedList: PokemonDetailed[] = [];
@@ -28,5 +38,17 @@ export class PokemonListComponent implements OnInit {
 
       this.pokemonDetailedList = val;
     });
+  }
+
+  @Input()
+  recievedData!: any;
+  getData(data: any) {
+    this.recievedData = data;
+    console.log(data);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.changeDetector.detectChanges();
+    console.log(this.recievedData);
   }
 }
